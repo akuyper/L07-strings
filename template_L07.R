@@ -1,9 +1,9 @@
-# L07 - strings ----
+# L07: strings ----
 # Stat 301-1
 
-## load packages ----
+# load packages ----
 
 
-## Exercises ----
+# Exercises ----
 
-### Ex 1 ----
+## Ex 1 ----

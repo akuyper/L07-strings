@@ -2,17 +2,24 @@
 title: "L07 Strings & Regex"
 subtitle: "Data Science 1 with R (STAT 301-1)"
 author: "YOUR NAME"
+pagetitle: "L07 YOUR NAME"
+date: today
 
 format:
   html:
     toc: true
+    toc-depth: 4
+    toc-location: left
     embed-resources: true
+    code-fold: false
     link-external-newwindow: true
 
 execute:
   warning: false
-  
-from: markdown+emoji 
+
+from: markdown+emoji
+reference-location: margin
+citation-location: margin  
 ---
 
 ::: {.callout-tip icon=false}
@@ -27,7 +34,7 @@ To link to your github **repo**sitory, appropriately edit the example link below
 
 ## Overview
 
-The goal of this lab is to learn and understand string manipulation in R. You’ll learn the basics of how strings work and how to create them by hand, but the focus of this chapter will be on regular expressions, or regexps for short (regex for even shorter). Regular expressions are useful because strings usually contain unstructured or semi-structured data, and regexps are a concise language for describing patterns in strings. You'd be surprised how often you'll need to use string manipulation in R, whether for text analysis, efficiently loading data files/objects, or extracting information from the internet or standardized forms.
+The goal of this lab is to learn and understand string manipulation in R. You’ll learn the basics of how strings work and how to create them by hand, but the focus of this chapter will be on regular expressions, or regexps for short (regex for even shorter). Regular expressions are useful because strings usually contain unstructured or semi-structured data, and regexps is a concise language for describing patterns in strings. You'd be surprised how often you'll need to use string manipulation in data science, whether for text analysis, efficiently loading data files/objects, or extracting information from the internet or standardized forms.
 
 These resources may help:
 
@@ -53,7 +60,9 @@ All datasets are found within downloaded R packages. New packages include `strin
 ## Exercises
 
 :::{.callout-important}
-The output for this assignment becomes extremely long and hinders presentation. Please set `results: hide` for your R code chunks where appropriate. Use your best judgment in deciding when to set `results: hide`. Remember that you can break the R code for exercises into many separate code chunks, so you can hide the long parts of solution output without hiding the shorter parts.
+The output for this assignment becomes extremely long and hinders presentation. Please set `results: hide` for your R code chunks where appropriate. Use your best judgment in deciding when to set `results: hide`. 
+
+Remember that you can break the R code for exercises into many separate code chunks, so you can hide the long parts of solution output without hiding the shorter parts.
 :::
 
 ### Exercise 1 
@@ -208,7 +217,9 @@ YOUR SOLUTION HERE
 
 ### Exercise 12
 
-Describe in words what these regular expressions match: (read carefully to see if each entry is a regular expression or a string that defines a regular expression.)
+Describe in words what these regular expressions match. 
+
+*Hint: read carefully to see if each entry is a regular expression or a string that defines a regular expression.*
 
 a.  `^.*$`
 b.  `"\\{.+\\}"`
@@ -255,6 +266,12 @@ YOUR SOLUTION HERE
 
 
 ## Case Study
+
+::: {.callout-warning}
+
+The work for this case study is not aimed at producing something for a boss. It is aimed at praticing working with strings and regular expressions. Therefore, providing and displaying code is expected. Raw tibble output is acceptable (meaning, you do not need to use `kable()` to make tables).
+
+:::
 
 Use the `tinder_profile` file in the `data` subdirectory to complete the tasks below.^[This dataset was sourced from [Swipestats.io](https://www.swipestats.io/).]
 
