@@ -55,15 +55,11 @@ You should always begin by loading all necessary packages towards the beginning 
 
 ## Datasets 
 
-All datasets are found within downloaded R packages. New packages include `stringr`,`htmlwidgets`, and `stringi`.  
+All exercise datasets are found within downloaded R packages. New packages include `stringr` (part of `tidyverse`), `htmlwidgets`, and `stringi`.  
+
+You'll also need the `instrument_reviews.csv`^[This dataset was sourced from [Kaggle](https://www.kaggle.com/datasets/eswarchandt/amazon-music-reviews/)] data file for the case study. The data and codebook is contained in the `data/` subdirectory.   
 
 ## Exercises
-
-:::{.callout-important}
-The output for this assignment becomes extremely long and hinders presentation. Please set `results: hide` for your R code chunks where appropriate. Use your best judgment in deciding when to set `results: hide`. 
-
-Remember that you can break the R code for exercises into many separate code chunks, so you can hide the long parts of solution output without hiding the shorter parts.
-:::
 
 ### Exercise 1 
 
@@ -114,7 +110,9 @@ YOUR SOLUTION HERE
 
 ### Exercise 4
 
-Write a sentence that contains a Greek letter.
+Use `str_length()` and `str_sub()` to extract the middle letter from each baby name, use data `babynames::babynames`. 
+
+What will you do if the string has an even number of characters?
 
 ::: {.callout-tip icon="false"}
 ## Solution
@@ -124,17 +122,6 @@ YOUR SOLUTION HERE
 :::
 
 ### Exercise 5
-
-Use `str_length()` and `str_sub()` to extract the middle letter from each baby name, use data `babynames::babynames`. What will you do if the string has an even number of characters?
-
-::: {.callout-tip icon="false"}
-## Solution
-
-YOUR SOLUTION HERE
-
-:::
-
-### Exercise 6
 
 Using `babynames::babynames`, what baby name has the most vowels? What name has the highest proportion of vowels?
 
@@ -147,75 +134,19 @@ YOUR SOLUTION HERE
 
 :::
 
+### Exercise 6
+
+Create a regular expression that will match telephone numbers as commonly written in your country. Demonstrate a case when it matches and one where it doesn't match (an improper phone number).
+
+::: {.callout-tip icon="false"}
+## Solution
+
+YOUR SOLUTION HERE
+
+:::
+
+
 ### Exercise 7
-
-Implement a simple version of `str_to_lower()` using `str_replace_all()`.
-
-::: {.callout-tip icon="false"}
-## Solution
-
-YOUR SOLUTION HERE
-
-:::
-
-### Exercise 8
-
-Create a regular expression that will match telephone numbers as commonly written in your country. Demonstarte a case when it matches and one where it doesn't match (an improper phone number).
-
-::: {.callout-tip icon="false"}
-## Solution
-
-YOUR SOLUTION HERE
-
-:::
-
-### Exercise 9
-
-How would you match the literal string `"'\`? How about `"$^$"`?
-
-::: {.callout-tip icon="false"}
-## Solution
-
-YOUR SOLUTION HERE
-
-:::
-
-### Exercise 10
-
-Explain why each of these patterns don't match a `\`: 
-
-a. `"\"` 
-b. `"\\"`
-c. `"\\\"`.
-
-::: {.callout-tip icon="false"}
-## Solution
-
-YOUR SOLUTION HERE
-
-:::
-
-### Exercise 11
-
-Given the corpus of common words in `stringr::words`, create regular expressions that find all words that:
-
-a.  Start with "y".
-b.  Don't start with "y".
-c.  End with "x".
-d.  Are exactly three letters long. (Don't cheat by using `str_length()`!)
-e.  Have seven letters or more.
-f.  Contain a vowel-consonant pair.
-g.  Contain at least two vowel-consonant pairs in a row.
-h.  Only consist of repeated vowel-consonant pairs.
-
-::: {.callout-tip icon="false"}
-## Solution
-
-YOUR SOLUTION HERE
-
-:::
-
-### Exercise 12
 
 Describe in words what these regular expressions match. 
 
@@ -236,10 +167,40 @@ YOUR SOLUTION HERE
 
 :::
 
+### Exercise 8
 
-### Exercise 13
+The `stringr::words` vector contains a corpus amount of common words. The below code converts the vector into a tibble.
 
-For each of the following challenges, try solving it by using both a single regular expression, and a combination of multiple `str_detect()` calls.
+```{r}
+words_df <- tibble(
+  words = stringr::words  
+)
+```
+
+Using the `words_df` data frame created above, create regular expressions that find all words that:
+
+a.  Start with "y".
+b.  Don't start with "y".
+c.  End with "x".
+d.  Are exactly three letters long. (Don't cheat by using `str_length()`!)
+e.  Have seven letters or more.
+f.  Contain a vowel-consonant pair.(ie: ab NOT ba)
+g.  Contain at least two vowel-consonant pairs in a row.
+h.  Only consist of repeated vowel-consonant pairs. (ie: even and animal are repeated vowel-consonant pairs but seven and animals are not)
+
+::: {.callout-tip icon="false"}
+## Solution
+
+YOUR SOLUTION HERE
+
+:::
+
+
+### Exercise 9
+
+For each of the following, you can use either a single regular expression or a combination of multiple `str_detect()` calls.
+
+Using the `words_df` data frame created in the previous exercise...
 
 a. Find all `words` that start or end with `x`.
 b. Find all `words` that start with a vowel and end with a consonant.
@@ -253,7 +214,7 @@ YOUR SOLUTION HERE
 :::
 
 
-### Exercise 14
+### Exercise 10
 
 Construct patterns to find evidence for and against the rule "i before e except after c"?
 
@@ -269,16 +230,50 @@ YOUR SOLUTION HERE
 
 ::: {.callout-warning}
 
-The work for this case study is not aimed at producing something for a boss. It is aimed at praticing working with strings and regular expressions. Therefore, providing and displaying code is expected. Raw tibble output is acceptable (meaning, you do not need to use `kable()` to make tables).
+The work for this case study is not aimed at producing something for a boss. It is aimed at practicing working with strings. Therefore, providing and displaying code is expected. Raw tibble output is acceptable (meaning, you do not need to use `kable()` to make tables).
 
 :::
 
-Use the `tinder_profile` file in the `data` subdirectory to complete the tasks below.^[This dataset was sourced from [Swipestats.io](https://www.swipestats.io/).]
+Use the `instrument_reviews.csv` file in the `data` subdirectory to complete the tasks below.^[This dataset was sourced from [Kaggle](https://www.kaggle.com/datasets/eswarchandt/amazon-music-reviews/).]
 
-The raw data file was a MESS! Luckily, a lot of it was pre-cleaned before it got to you but there are still a few variables that need some help. Display the code used to complete the tasks.
 
-- Obtain the count of users that display their `school` on their profile
-- Obtain the count of users that display their `job` on their profile
+### Task 1
+
+Clean up the variable `reviewTime` by changing it into 3 **numeric** variables called `month`, `day`, and `year`. ie: the observation "02 28, 2014" would have a `month` of `2`; `day` of `28` and `year` of `2014`
+
+Print a `glimpse()` of the dataset to prove you were successful.
+
+::: {.callout-tip icon="false"}
+## Solution
+
+YOUR SOLUTION HERE
+
+:::
+
+### Task 2
+
+Obtain a count of the number of reviews (`reviewText`) that mention the word “excellent” (case-insensitive) and the number that do not.
+
+
+::: {.callout-tip icon="false"}
+## Solution
+
+YOUR SOLUTION HERE
+
+:::
+
+
+### Task 3
+
+Convert the variable `helpful` into a `helpful_rating`. The first value is the number of people that found it helpful and the second value is the total number of people who voted. 
+
+- [0, 0] should have a rating of 0 (not NA); 
+- [13, 14] would have a rating of 13/14 = 0.929; 
+- [1, 1] would have a rating of 1/1 = 1. 
+
+Print only the variables `asin` ,`helpful` and `helpful_rating`.
+
+*Hint: many ways to solve but consider using functions such as either `separate_wider_delim` or `str_extract` in combination with other `stringr` functions.*
 
 ::: {.callout-tip icon="false"}
 ## Solution
@@ -295,4 +290,16 @@ Graduate students are required to complete this challenge. **It is optional for 
 
 :::
 
-Create a new column in the dataset where you extract the name of either the school or job title from `schools` or `jobs`, respectively. 
+Using the `instrument_reviews` dataset, create a new variable that contains either “excellent”, “good”, “amazing”, or NA. 
+
+Use a single regex pattern to extract the **first** occurrence of any of the following words (“excellent”, “good”, “amazing”) from `reviewText`.
+
+The variable should contain the first matching word (case-insensitive), or NA if none appear.
+
+Examples: 
+
+- "This is excellent and amazing." returns "excellent"
+- "Good sound quality" returns "good"
+- “Not worth the price” returns NA
+
+

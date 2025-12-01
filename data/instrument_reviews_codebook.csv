@@ -1,0 +1,10 @@
+Variables,Type,Meaning
+reviewerID,character,"A unique, anonymized identifier for the user who wrote the review."
+asin,character,The Amazon Standard Identification Number — a unique product ID.
+reviewerName,character,Name displayed publicly for the reviewer. May be missing (NA) in some cases.
+helpful,character,"A two-number vector [x, y] showing [# ppl who marked helpful, # votes received]"
+reviewText,character,The full text of the customer’s written review.
+overall,numeric,The star rating assigned by the reviewer (1 through 5)
+summary,character,"A short, user-written title summarizing the review."
+unixReviewTime,numeric,"Review date expressed as seconds since January 1, 1970 (UNIX epoch)."
+reviewTime,character,"Text version of the review date (MM DD, YYYY) or (MM D, YYYY)"

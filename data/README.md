@@ -1,5 +1,5 @@
 ## Datasets
 
-Tinder profile data collected from [Swipestats.io](https://www.swipestats.io/).
+Instrument review data collected from [Kaggle](https://www.kaggle.com/datasets/eswarchandt/amazon-music-reviews/).
 
-- `tinder_profile.csv`
+- `instrument_reviews.csv`
